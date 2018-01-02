@@ -13,7 +13,7 @@ from lib.welcome.welcome import welcome
 
 
 def main():
-    root = "http://wiki.ioin.in/"
+    root = "https://www.mkernel.com"
     threadNum = 10
 
     crawler1 = SpiderMain(root, threadNum)

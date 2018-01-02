@@ -1,9 +1,11 @@
 #!/usr/bin/env python
 #--*-- coding:utf-8
+#__author__ == 'Kios'
 
 from lib.core import Download, UrlManager
+from lib.core import plugin
 import threading
-from urlparse import urljoin
+from urllib.parse import urljoin # URLpare was rename in Python3
 from bs4 import BeautifulSoup
 from termcolor import colored
 import logging
@@ -64,5 +66,8 @@ class SpiderMain(object):
 				if _str is None:
 					continue
 				new_urls = self._parse(new_url, _str["html"])
+				disallow = []
+				_plugin = plugin.extraplugins("script", disallow)
+				_plugin.work(_str["url"], _str["html"])
 				self.urls.add_new_urls(new_urls)
 				

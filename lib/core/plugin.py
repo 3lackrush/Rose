@@ -24,6 +24,9 @@ class extraplugins(object):
 				if disfile in file:
 					return False
 			return True
+		dir_exploit = filter(filter_func, os.listdir(self.plugin))
+		return list(dir_exploit)
+
 
 	def work(self, url, html):
 		for _plugin in self.list_plugin():
@@ -32,5 +35,5 @@ class extraplugins(object):
 				spider = getattr(m, 'spider')
 				p = spider()
 				s = p.run(url, html)
-			except Exception, e:
-				print e 
+			except Exception as e:
+				print(e) 

@@ -4,6 +4,7 @@
 
 import re,random
 from lib.core import Download
+from termcolor import colored
 
 class spider:
     def run(self,url,html):
@@ -35,4 +36,4 @@ class spider:
             _url = url + test_payload%(RANDINT,RANDINT+1)
             content["false"] = Downloader.get(_url)
             if content["origin"]==content["true"]!=content["false"]:
-                return "sql fonud: %"%url
+                print(colored(" [+] sql injection fonud: %"%url, "red"))

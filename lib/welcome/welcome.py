@@ -28,5 +28,5 @@ def welcome():
 
     -------------------------------------------------------------
     """
-    print colored(Rose,'red')
-    print colored(Info,'green')
+    print(colored(Rose,'red'))
+    print(colored(Info,'green'))
